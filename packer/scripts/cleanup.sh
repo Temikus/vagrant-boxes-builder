@@ -5,3 +5,6 @@ rm -rf VBoxGuestAdditions_*.iso
 
 # Remove traces of mac address from network configuration
 sed -i /HWADDR/d /etc/sysconfig/network-scripts/ifcfg-en*
+
+# Clean up old DHCP leases
+rm -f /var/lib/dhclient/dhclient-*.leases
