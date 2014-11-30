@@ -8,3 +8,6 @@ sed -i /HWADDR/d /etc/sysconfig/network-scripts/ifcfg-en*
 
 # Clean up old DHCP leases
 rm -f /var/lib/dhclient/dhclient-*.leases
+
+# Clean up the host SSH keys to avoid duplicates
+rm -f /etc/ssh/ssh_host_*
