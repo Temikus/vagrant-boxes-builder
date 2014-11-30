@@ -2,7 +2,7 @@ require 'fileutils'
 
 # Parameters
 $builds_dir = "./builds"
-ENV["BUILD_VERSION"] = Time.now.strftime("%Y%m%d")
+ENV["BUILD_VERSION"] = "v" + Time.now.strftime("%Y%m%d")
 
 
 # Get config list
