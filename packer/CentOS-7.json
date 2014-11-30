@@ -19,7 +19,6 @@
       "ssh_username": "root",
       "ssh_password": "vagrant",
       "ssh_wait_timeout": "90m",
-      "shutdown_command": "sudo /sbin/halt -p now",
       "vboxmanage": [
         ["modifyvm", "{{.Name}}", "--memory", "480"],
         ["modifyvm", "{{.Name}}", "--cpus", "1"]
