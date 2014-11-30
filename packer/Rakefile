@@ -1,0 +1,26 @@
+require 'fileutils'
+
+# Parameters
+$builds_dir = "./builds"
+ENV["BUILD_VERSION"] = Time.now.strftime("%Y%m%d")
+
+
+# Get config list
+def templates
+  @files ||= Dir.glob("*.json")
+end
+
+desc 'List templates'
+task :list do
+  puts templates
+end
+
+desc 'Build templates'
+task :build do
+  templates.each do |template|
+    system("rm -i builds/*-${BUILD_VERSION}.box")
+    system("packer build #{template} | tee ./logs/build-${BUILD_VERSION}.log")
+    system("shasum -a 256 builds/*-${BUILD_VERSION}.box")
+  end
+end
+
